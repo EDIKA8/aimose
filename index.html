@@ -134,6 +134,32 @@ body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;op
 #lb.on{opacity:1;pointer-events:auto}#lb img{max-height:88vh;max-width:92vw;border-radius:16px;transform:scale(.9);transition:transform .45s cubic-bezier(.2,.7,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.6)}#lb.on img{transform:none}
 @media (hover:none){#glow{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;translate:0 0}}
+
+#bt{position:fixed;right:20px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;border:0;background:var(--wine);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 30px -10px rgba(123,34,51,.7);transition:transform .25s}
+#bt:hover{transform:scale(1.08) rotate(-6deg)}#bt::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wine);animation:rp 2.4s infinite}
+@keyframes rp{to{transform:scale(1.7);opacity:0}}
+#bh{position:fixed;right:90px;bottom:calc(34px + env(safe-area-inset-bottom,0px));z-index:70;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:14px;box-shadow:0 12px 30px -14px rgba(0,0,0,.5);opacity:0;translate:0 10px;pointer-events:none;transition:.4s}
+#bh.on{opacity:1;translate:0 0}
+#bp{position:fixed;right:20px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:70;width:360px;max-width:calc(100vw - 32px);height:min(520px,calc(100vh - 150px));display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);opacity:0;transform:translateY(24px) scale(.95);transform-origin:100% 100%;pointer-events:none;transition:.35s cubic-bezier(.2,.7,.2,1)}
+#bp.on{opacity:1;transform:none;pointer-events:auto}
+.bhd{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--ink);color:var(--bg);position:relative}
+.bhd::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--weave)}
+.bhd .mark{width:38px;height:38px;font-size:11px;flex:none}.bhd b{display:block;font-size:15px}.bhd small{opacity:.7;font-size:12px}
+#bx{margin-left:auto;background:none;border:0;color:inherit;font-size:28px;line-height:1;cursor:pointer}
+#bm{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:14.5px;line-height:1.6;animation:up .4s both}
+.m.b{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.m.u{background:var(--wine);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.m a{color:var(--wine);font-weight:600;border-bottom:1px solid}
+.m.t{display:flex;gap:4px;padding:14px}.m.t i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:fl 1s infinite}.m.t i:nth-child(2){animation-delay:.15s}.m.t i:nth-child(3){animation-delay:.3s}
+#bc{display:flex;gap:8px;overflow-x:auto;padding:4px 16px 12px;scrollbar-width:none}
+#bc button{flex:none;font:500 13px "Noto Sans Georgian",sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:.2s}
+#bc button:hover{background:var(--ink);color:var(--bg)}
+.bin{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+#bi{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:11px 16px;font:400 14.5px "Noto Sans Georgian",sans-serif;outline:0}
+#bi:focus{border-color:var(--wine)}
+#bs{width:44px;border:0;border-radius:50%;background:var(--ink);color:var(--bg);cursor:pointer}
+@media (max-width:720px){#bt{bottom:calc(88px + env(safe-area-inset-bottom,0px));right:16px;width:54px;height:54px}#bh{bottom:calc(98px + env(safe-area-inset-bottom,0px));right:80px}#bp{right:16px;bottom:calc(152px + env(safe-area-inset-bottom,0px));height:min(480px,calc(100vh - 220px))}}
 </style>
 </head>
 <body>
@@ -206,6 +232,9 @@ body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;op
 </div></div>
 </main>
 <footer><div class="wrap"><span>© 2026 აიმოსე · aimose</span><span><a href="https://www.instagram.com/aimosegeorgia/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/aimoseGeorgia" target="_blank" rel="noopener">Facebook</a> · made in georgia</span></div></footer>
+<button id="bt" aria-label="ჩატის გახსნა"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></button>
+<div id="bh">გამარჯობა! 👋 შემიძლია დაგეხმაროთ?</div>
+<div id="bp" role="dialog" aria-label="ასისტენტი"><div class="bhd"><span class="mark">aimose</span><div><b>აიმოსეს ასისტენტი</b><small>ავტომატური პასუხები</small></div><button id="bx" aria-label="დახურვა">×</button></div><div id="bm"></div><div id="bc"></div><div class="bin"><input id="bi" placeholder="დაწერე კითხვა..." autocomplete="off"><button id="bs" aria-label="გაგზავნა">➤</button></div></div>
 <div class="dock"><a class="btn solid" href="tel:+995595949791">დარეკვა</a><a class="btn ghost" href="https://www.facebook.com/aimoseGeorgia" target="_blank" rel="noopener">Facebook</a></div>
 <script>
 document.getElementById('filters').addEventListener('click',function(e){
@@ -240,6 +269,36 @@ var lb=d.getElementById('lb'),li=lb.querySelector('img');
 d.getElementById('grid').addEventListener('click',function(e){var i=e.target.closest('img');if(!i)return;li.src=i.src;li.alt=i.alt;lb.classList.add('on')});
 lb.addEventListener('click',function(){lb.classList.remove('on')});
 addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+})();
+
+(function(){
+var d=document,$=function(i){return d.getElementById(i)},bp=$('bp'),bm=$('bm'),bi=$('bi'),bh=$('bh');
+var TEL='<a href="tel:+995595949791">595 94 97 91</a>',IG='<a href="https://www.instagram.com/aimosegeorgia/" target="_blank" rel="noopener">Instagram</a>',FB='<a href="https://www.facebook.com/aimoseGeorgia" target="_blank" rel="noopener">Facebook</a>';
+var CONTACT='დაგვირეკეთ: '+TEL+' ან მოგვწერეთ '+IG+'-სა და '+FB+'-ზე.';
+/* რედაქტირება: k = საკვანძო სიტყვები (მცირე ასოებით), a = პასუხი */
+var FAQ=[
+{k:['გამარჯობა','სალამი','hello','hi ','დილა მშვიდობის','საღამო'],a:'გამარჯობა! 😊 მე აიმოსეს ავტომატური ასისტენტი ვარ. მკითხეთ კოლექციაზე, შეკვეთაზე, მიტანაზე ან კონტაქტზე.'},
+{k:['ფას','ღირს','რა ღირ','თანხ','ფასდაკლ'],a:'ფასებზე ზუსტი ინფორმაციისთვის '+CONTACT},
+{k:['მიტან','გაგზავნ','დოსტავ','ჩამოტან','რეგიონ','მიწოდ'],a:'მიტანის სერვისი გვაქვს 🚚 პირობებსა და ვადებზე დეტალებს დაგიზუსტებთ ტელეფონით ან მესიჯით: '+CONTACT},
+{k:['შეუკვ','შეკვეთ','დაკერ','მოკერ','ინდივიდ','ზომა','ზომის','გაზომ','როგორ ვიყიდ','ვიყიდო'],a:'ნამუშევრები ინდივიდუალური დიზაინით იქმნება. აირჩიეთ მოდელი კოლექციიდან ან გამოგვიგზავნეთ თქვენი იდეა და დაგვიკავშირდით: '+CONTACT+' ზომასა და დეტალებზე ერთად შევთანხმდებით.'},
+{k:['რას ამზად','რას ყიდ','კოლექც','მოდელ','კატალოგ','ბავშვ','გოგო','ბიჭ','მამაკაც','კაცის','კაცებ','ახალშობ','პატარ','შალ','აქსესუ','ჟილეტ','კაბა','პერანგ','რას ქმნით'],a:'ვკერავთ ტანსაცმელს გოგონებისთვის, ბიჭებისთვის, მამაკაცებისთვის და პატარებისთვის, ასევე ვაკეთებთ აქსესუარებს, მაგალითად შალებს. ყველაფრის ნახვა შეგიძლიათ <a href="#collection">კოლექციაში</a>, მეტი ნამუშევარი კი '+IG+'-ზეა.'},
+{k:['ხელნაკეთ','ქსოვილ','მასალ','ღაზირ','ორნამენტ','ნაქარგ','საქართველო','ტრადიც','ხარისხ'],a:'აიმოსე ხელნაკეთი ტანსაცმელია, რომელიც საქართველოში იკერება. ჩვენი ნამუშევრებისთვის დამახასიათებელია ღაზირები, ვაზის ორნამენტი, ტრადიციული ნაქარგები და ფაქტურული ქსოვილები.'},
+{k:['მისამართ','სად ხართ','სად მდებ','მაღაზი','ლოკაცი','შოურუმ','ფილიალ'],a:'მისამართის ზუსტი ინფორმაცია ჩემთან არ არის. დაგვიკავშირდით: '+CONTACT},
+{k:['საათ','გრაფიკ','როდის მუშა','მუშაობთ','ღიაა'],a:'სამუშაო საათებზე ზუსტი ინფორმაცია ჩემთან არ არის. დაგვირეკეთ: '+TEL+'.'},
+{k:['ტელეფონ','ნომერ','კონტაქტ','დარეკ','დაკავშირ','ინსტა','instagram','ფეისბუ','facebook','მესენჯ','მოგწერ'],a:'ჩვენი კონტაქტი: '+TEL+' · '+IG+' · '+FB+'.'},
+{k:['მადლობ','გმადლობ','კარგი','ოკ'],a:'გთხოვთ! 💛 თუ კიდევ რამე გაინტერესებთ, მკითხეთ.'}
+];
+var FALL='ამ კითხვაზე ზუსტი პასუხი ჩემთან არ არის 🙏 '+CONTACT;
+var CH=['რას ამზადებთ?','მიტანა გაქვთ?','როგორ შევუკვეთო?','ფასები','კონტაქტი'];
+function add(t,c,html){var e=d.createElement('div');e.className='m '+c;if(html)e.innerHTML=t;else e.textContent=t;bm.appendChild(e);bm.scrollTop=bm.scrollHeight;return e}
+function find(q){q=q.toLowerCase();for(var i=0;i<FAQ.length;i++)for(var j=0;j<FAQ[i].k.length;j++)if(q.indexOf(FAQ[i].k[j])>-1)return FAQ[i].a;return FALL}
+function ask(t){t=t.trim();if(!t)return;add(t,'u');bi.value='';var ty=add('<i></i><i></i><i></i>','b t',1);setTimeout(function(){ty.remove();add(find(t),'b',1)},650)}
+var bc=$('bc');CH.forEach(function(x){var b=d.createElement('button');b.textContent=x;b.onclick=function(){ask(x)};bc.appendChild(b)});
+add('გამარჯობა! 👋 მე აიმოსეს ავტომატური ასისტენტი ვარ. აირჩიეთ კითხვა ქვემოდან ან დაწერეთ თქვენი.','b');
+function tg(o){bp.classList.toggle('on',o);bh.classList.remove('on');if(o)setTimeout(function(){bi.focus({preventScroll:true})},300)}
+$('bt').onclick=function(){tg(!bp.classList.contains('on'))};$('bx').onclick=function(){tg(false)};
+$('bs').onclick=function(){ask(bi.value)};bi.addEventListener('keydown',function(e){if(e.key==='Enter')ask(bi.value)});
+setTimeout(function(){if(!bp.classList.contains('on'))bh.classList.add('on')},4500);setTimeout(function(){bh.classList.remove('on')},12000);
 })();
 </script>
 </body>
